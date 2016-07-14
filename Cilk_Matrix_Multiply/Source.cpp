@@ -56,10 +56,10 @@ int matrixMultiplierCilkFor() {
 		C[i] = new int[N];
 	}
 
-	for (int i = 0; i < N; i++) {
+	cilk_for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
 			C[i][j] = 0;
-			cilk_for (int k = 0; k < N; k++) {
+			for (int k = 0; k < N; k++) {
 				C[i][j] += A[i][k] * B[k][j];
 			}
 		}
